@@ -24,7 +24,7 @@ FROM base AS builder
 WORKDIR /app
 COPY package.json ./
 COPY . ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 RUN npm run build:docker
 
 FROM arm32v7/busybox:latest AS app
